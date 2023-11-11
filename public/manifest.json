@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Create Trello Item From Page Extension",
+    "version": "0.0.1",
+    "description": "An extension that automaticaly creates a new Trello item of the current page",
+    "permissions": [
+      "activeTab"
+    ],
+    "host_permissions": [],
+    "action": {
+      "default_popup": "index.html"
+    },
+    "background": {
+      "page": "src/background/background.html",
+      "persistent": false
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://blank.org/*"],
+        "js": ["./index.global.js"],
+        "css": ["./style.css"],
+        "run_at": "document_end"
+      }
+    ]
+  }
